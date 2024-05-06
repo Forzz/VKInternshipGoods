@@ -57,6 +57,23 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
 
-    // RxJava
+    // RxJava3
     implementation(libs.rxjava)
+    implementation(libs.rxandroid)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.adapter.rxjava3)
+
+    // Okhttp
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
+    // Paging3
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.rxjava3)
+
+    // Gson
+    implementation(libs.gson)
 }

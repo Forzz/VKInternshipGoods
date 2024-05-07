@@ -2,7 +2,7 @@ package com.forzz.vkinternshipgoods.di
 
 import android.content.Context
 import com.forzz.vkinternshipgoods.GoodsApplication
-import com.forzz.vkinternshipgoods.common.Constants
+import com.forzz.vkinternshipgoods.utils.Constants
 import com.forzz.vkinternshipgoods.data.remote.ProductService
 import com.forzz.vkinternshipgoods.data.repository.ProductRepositoryImpl
 import com.forzz.vkinternshipgoods.domain.repository.ProductRepository

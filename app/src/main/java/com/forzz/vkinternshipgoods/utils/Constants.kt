@@ -1,4 +1,4 @@
-package com.forzz.vkinternshipgoods.common
+package com.forzz.vkinternshipgoods.utils
 
 object Constants {
 

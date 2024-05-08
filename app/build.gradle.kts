@@ -74,10 +74,9 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
-    // Paging3
-    implementation(libs.androidx.paging.runtime)
-    implementation(libs.androidx.paging.rxjava3)
-
     // Gson
     implementation(libs.gson)
+
+    // ViewPager2
+    implementation(libs.androidx.viewpager2)
 }

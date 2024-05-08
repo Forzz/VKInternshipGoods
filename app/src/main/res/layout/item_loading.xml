@@ -6,7 +6,7 @@
     android:gravity="center">
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progress_bar_products_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

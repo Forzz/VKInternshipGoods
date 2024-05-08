@@ -12,24 +12,78 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/image_product"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/images_product"
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="18sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_current_price"
+            app:layout_constraintTop_toBottomOf="@+id/text_current_price" />
+
+        <TextView
+            android:id="@+id/text_current_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/current_price"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_product" />
+            app:layout_constraintTop_toBottomOf="@+id/images_product" />
+
+        <TextView
+            android:id="@+id/text_previous_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/previous_price"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_current_price"
+            app:layout_constraintStart_toEndOf="@+id/text_current_price" />
+
+        <TextView
+            android:id="@+id/text_sale_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6sp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/sale"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_previous_price"
+            app:layout_constraintStart_toEndOf="@+id/text_previous_price"
+            app:layout_constraintTop_toTopOf="@+id/text_previous_price" />
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_product_name"
+            app:layout_constraintStart_toStartOf="@+id/text_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_product_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -20,16 +20,19 @@ class ProductsScreenViewModel @Inject constructor(
         isLoaded.postValue(false)
     }
 
-    fun getProducts() {
+    fun getProducts(skip: Int, limit: Int) {
+        isLoaded.postValue(false)
+        getProductsUseCase.setParameters(skip, limit)
         getProductsUseCase.execute(
-            onSuccess = {
+            onSuccess = { productList ->
                 isLoaded.postValue(true)
-                products.postValue(it.products)
-                Log.d("DATA_RECEIVE_SUCCESS", it.toString())
+                products.postValue(productList.products)
+                Log.d("DATA_RECEIVE_SUCCESS", productList.toString())
             },
-            onError = {
-                it.printStackTrace()
+            onError = { error ->
+                error.printStackTrace()
             }
         )
     }
+
 }

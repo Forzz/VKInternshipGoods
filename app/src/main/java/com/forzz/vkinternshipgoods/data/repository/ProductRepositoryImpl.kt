@@ -10,7 +10,7 @@ class ProductRepositoryImpl @Inject constructor(
     private val productService: ProductService
 ) : ProductRepository {
 
-    override fun getProducts(): Single<PaginatedProductList> {
-        return productService.getProducts()
+    override fun getProducts(skip: Int, limit: Int): Single<PaginatedProductList> {
+        return productService.getProductsRx(skip, limit)
     }
 }

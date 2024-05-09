@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 import com.forzz.vkinternshipgoods.databinding.ItemProductImageBinding
+import com.google.android.material.tabs.TabLayout
 
 class ProductImageAdapter(private val images: List<String>) :
     RecyclerView.Adapter<ProductImageAdapter.ImageViewHolder>() {

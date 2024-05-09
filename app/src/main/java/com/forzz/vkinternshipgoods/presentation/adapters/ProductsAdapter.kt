@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.forzz.vkinternshipgoods.R
-import com.forzz.vkinternshipgoods.databinding.ProductItemBinding
+import com.forzz.vkinternshipgoods.databinding.ItemProductBinding
 import com.forzz.vkinternshipgoods.domain.model.Product
+import com.forzz.vkinternshipgoods.utils.Constants
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlin.math.roundToInt
 
@@ -20,14 +21,14 @@ internal class ProductsAdapter(val onProductClick: (Product) -> Unit) :
     private var isLoading = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == VIEW_TYPE_LOADING) {
+        return if (viewType == Constants.ViewType.LOADING) {
             val view =
                 LayoutInflater.from(parent.context).inflate(R.layout.item_loading, parent, false)
             LoadingViewHolder(view)
         } else {
             val inflater = LayoutInflater.from(parent.context)
-            val productItemBinding = ProductItemBinding.inflate(inflater, parent, false)
-            ProductViewHolder(productItemBinding)
+            val itemProductBinding = ItemProductBinding.inflate(inflater, parent, false)
+            ProductViewHolder(itemProductBinding)
         }
     }
 
@@ -44,9 +45,9 @@ internal class ProductsAdapter(val onProductClick: (Product) -> Unit) :
 
     override fun getItemViewType(position: Int): Int {
         return if (position == itemCount - 1 && isLoading) {
-            VIEW_TYPE_LOADING
+            Constants.ViewType.LOADING
         } else {
-            VIEW_TYPE_ITEM
+            Constants.ViewType.ITEM
         }
     }
 
@@ -61,7 +62,7 @@ internal class ProductsAdapter(val onProductClick: (Product) -> Unit) :
     }
 
     inner class ProductViewHolder(
-        private val binding: ProductItemBinding
+        private val binding: ItemProductBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(product: Product, context: Context) {
 
@@ -82,6 +83,8 @@ internal class ProductsAdapter(val onProductClick: (Product) -> Unit) :
             val imageAdapter = ProductImageAdapter(allProductImages)
             viewPager.adapter = imageAdapter
 
+            TabLayoutMediator(binding.tabLayoutImageStatus, viewPager) { tab, position -> }.attach()
+
             itemView.setOnClickListener {
                 onProductClick.invoke(product)
             }
@@ -89,9 +92,4 @@ internal class ProductsAdapter(val onProductClick: (Product) -> Unit) :
     }
 
     class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-    companion object {
-        const val VIEW_TYPE_ITEM = 0
-        const val VIEW_TYPE_LOADING = 1
-    }
 }

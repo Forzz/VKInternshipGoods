@@ -2,7 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="accent">#0077FF</color>
     <color name="current_price">#4CAF50</color>
     <color name="previous_price">#4E4E4E</color>
     <color name="sale">#ED5555</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

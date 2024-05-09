@@ -36,7 +36,7 @@ class ProductsScreenFragment : Fragment() {
         val layoutManager = GridLayoutManager(requireContext(), 2)
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                return if (productsAdapter?.getItemViewType(position) == ProductsAdapter.VIEW_TYPE_LOADING) {
+                return if (productsAdapter?.getItemViewType(position) == Constants.ViewType.LOADING) {
                     layoutManager.spanCount
                 } else {
                     1
